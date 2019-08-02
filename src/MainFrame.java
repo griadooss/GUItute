@@ -15,6 +15,12 @@ public class MainFrame extends JFrame {
         mainPanel = new MainPanel();
         add(mainPanel, BorderLayout.CENTER);
         toolBar = new ToolBar();
+        toolBar.setStringListener(new StringListener() {
+            @Override
+            public void textSentFromToolbar(String s) {
+                mainPanel.setTextArea(s);
+            }
+        });
         add(toolBar, BorderLayout.NORTH);
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

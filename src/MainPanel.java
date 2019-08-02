@@ -28,4 +28,7 @@ public class MainPanel extends JPanel {
 
 
     //methods
+    public void setTextArea(String s) {
+        textArea.append(s);
+    }
 }
