@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
         toolBar.setStringListener(new StringListener() {
             @Override
             public void textSentFromToolbar(String s) {
-                mainPanel.setTextArea(s);
+                mainPanel.appendText(s);
             }
         });
         add(toolBar, BorderLayout.NORTH);
