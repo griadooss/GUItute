@@ -13,7 +13,7 @@ public class ToolBar extends JPanel implements ActionListener {
 
     //constructor
     public ToolBar() {
-        setLayout(new FlowLayout(FlowLayout.RIGHT));
+        setLayout(new FlowLayout(FlowLayout.LEFT));
 
         helloButton = new JButton("Hello");
         helloButton.addActionListener(this);
