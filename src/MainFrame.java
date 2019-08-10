@@ -40,6 +40,13 @@ public class MainFrame extends JFrame {
 
         formPanel = new FormPanel();
         add(formPanel, BorderLayout.WEST);
+        formPanel.setFormListener(new FormListener() {
+            @Override
+            public void formEventOccurred(FormEvent event) {
+                mainPanel.appendText(event.getName() + ": " + event.getOccupation() + "\n");
+            }
+        });
+
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(600, 500);

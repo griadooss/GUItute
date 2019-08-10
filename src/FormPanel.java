@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FormPanel extends JPanel {
     //fields
@@ -9,6 +11,8 @@ public class FormPanel extends JPanel {
     private JTextField nameField;
     private JTextField occupationField;
     private JButton okBtn;
+
+    private FormListener formListener;
 
     //constructor
     public FormPanel() {
@@ -75,6 +79,22 @@ public class FormPanel extends JPanel {
         gc.anchor = GridBagConstraints.FIRST_LINE_START; //specifies which side of the cell the control sticks to.
         add(okBtn, gc);
 
+        okBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println("form button pressed\n");
+                String name = nameField.getText();
+                String occupation = occupationField.getText();
+
+                FormEvent ev = new FormEvent(this, name, occupation);
+
+                System.out.println(ev.getName() + " " + ev.getOccupation() + "\n");
+
+                if (formListener != null) {
+                    formListener.formEventOccurred(ev);
+                }
+            }
+        });
 
 
 
@@ -83,4 +103,7 @@ public class FormPanel extends JPanel {
 
 
     //methods
+    public void setFormListener(FormListener listener){
+        this.formListener = listener;
+    }
 }
