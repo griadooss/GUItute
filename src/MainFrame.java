@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
         formPanel.setFormListener(new FormListener() {
             @Override
             public void formEventOccurred(FormEvent event) {
-                mainPanel.appendText(event.getName() + ": " + event.getOccupation() + "\n");
+                mainPanel.appendText(event.getName() + ": " + event.getOccupation() + " " + event.getAgeCategory() + "\n");
             }
         });
 

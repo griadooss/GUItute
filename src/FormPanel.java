@@ -58,7 +58,7 @@ public class FormPanel extends JPanel {
                 AgeCategory ageCat = ageList.getSelectedValue();
                 System.out.println(ageCat.getId() +" " + ageCat.toString());
 
-                FormEvent ev = new FormEvent(this, name, occupation);
+                FormEvent ev = new FormEvent(this, name, occupation, ageCat.getId());
 
                 System.out.println(ev.getName() + " " + ev.getOccupation() + "\n");
 
